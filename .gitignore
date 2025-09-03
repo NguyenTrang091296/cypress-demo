@@ -1,0 +1,43 @@
+# ======================
+# Node & Cypress Project
+# ======================
+
+# Ignore dependencies (installed via npm or yarn)
+node_modules/
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+
+# Ignore Cypress cache and generated artifacts
+Cypress/Cache/
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Ignore local test reports
+allure-results/
+allure-report/
+coverage/
+
+# Ignore environment configuration (contains sensitive data)
+cypress.env.json
+
+# Ignore system-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor configuration files
+.idea/
+.vscode/
+*.iml
+
+# Ignore log files
+*.log
+
+# Ignore build artifacts
+dist/
+build/
+
+# Ignore Windows system files
+Desktop.ini

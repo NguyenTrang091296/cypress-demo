@@ -1,0 +1,27 @@
+{
+  "name": "cypress-demo",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000c\u0000y\u0000p\u0000r\u0000e\u0000s\u0000s\u0000-\u0000d\u0000e\u0000m\u0000o\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenTrang091296/cypress-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenTrang091296/cypress-demo/issues"
+  },
+  "homepage": "https://github.com/NguyenTrang091296/cypress-demo#readme",
+  "devDependencies": {
+    "@types/cypress": "^0.1.6",
+    "@types/node": "^24.3.0",
+    "cypress": "^15.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
