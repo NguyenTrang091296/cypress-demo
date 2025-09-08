@@ -1,0 +1,49 @@
+name: Cypress demo
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x] # Bạn có thể đổi sang 20 nếu cần
+
+    steps:
+      # 1. Checkout source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # 3. Cài đặt dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Chạy test API bằng Cypress
+      - name: Run Cypress API Tests
+        run: npm run test
+
+      # 5. Upload report (nếu có Allure hoặc Mocha)
+      - name: Upload Cypress Test Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-results
+          path: |
+            cypress/videos
+            cypress/screenshots
