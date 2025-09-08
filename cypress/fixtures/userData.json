@@ -1,0 +1,14 @@
+{
+  "validUser": 
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "zipCode": "700000"
+  },
+  "emptyUser": 
+  {
+    "firstName": "",
+    "lastName": "",
+    "zipCode": ""
+  }
+}

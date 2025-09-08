@@ -9,9 +9,11 @@ class LoginPage {
 
   login(username: string, password: string) {
      if (username) {
+      cy.get(this.usernameInput).should('be.visible');
       cy.get(this.usernameInput).type(username);
      }
     if (password) {
+    cy.get(this.passwordInput).should('be.visible');
     cy.get(this.passwordInput).type(password);
     }
     cy.get(this.loginButton).click();

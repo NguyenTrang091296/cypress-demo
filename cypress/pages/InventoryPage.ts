@@ -1,12 +1,17 @@
 // cypress/pages/InventoryPage.ts
 class InventoryPage {
   appLogo = '.app_logo';
-  productName = '.inventory_item_name';
-  productPrice = '.inventory_item_price';
   sortDropdown = '.product_sort_container';
   addToCartButton = '#add-to-cart';
   removeButton = '#remove';
   backToProductLink = '#back-to-products';
+  productItem = '.inventory_item';
+  productName = '[data-test="inventory-item-name"]';
+  productDesc = '[data-test="inventory-item-desc"]';
+  productPrice = '[data-test="inventory-item-price"]';
+  inventoryBtn = '.btn_inventory';
+  
+
 
   verifyOnInventoryPage() {
     cy.url().should('include', '/inventory.html');
@@ -17,16 +22,75 @@ class InventoryPage {
   clickFirstProduct() {
     cy.get(this.productName).first().click();
   }
+   checkInformationProduct(nameProduct: string, description: string, priceProduct: string) {
+    cy.get(this.productName)
+      .should('exist')
+      .and('be.visible')
+      .and('contain.text', nameProduct);
 
-  addToCart() {
-    cy.get(this.addToCartButton).click();
-    cy.contains('Remove').should('be.visible');
+    cy.get(this.productName).first()
+      .should('have.text', nameProduct);
+
+    cy.get(this.productDesc)
+      .should('exist')
+      .and('be.visible')
+      .and('contain.text', description);
+
+    cy.get(this.productDesc).first()
+      .should('have.text', description);
+
+    cy.get(this.productPrice)
+      .should('exist')
+      .and('be.visible')
+      .and('contain.text', priceProduct);
+
+    cy.get(this.productPrice).first()
+      .should('have.text', priceProduct);
+
+    cy.log(`✅ Product: ${nameProduct} | ${description} | ${priceProduct}`);
   }
 
-  removeToCart() {
-    cy.get(this.removeButton).click();
-    cy.contains('Add to cart').should('be.visible');
+
+  addToCart(productName: string) {
+    cy.log(`Adding product "${productName}" to cart`);
+    
+    cy.get("body").then(($body) => {
+      if ($body.find(this.productItem).length > 0) {
+        
+        cy.get(this.productItem)
+          .contains(productName)
+          .parents(this.productItem)
+          .find(this.inventoryBtn)
+          .should('have.text', "Add to cart")
+          .click();
+      } else {
+       
+        cy.get(this.addToCartButton)
+          .should("be.visible")
+          .click();
+      }
+    });
   }
+  
+  removeToCart(productName: string) {
+    cy.log(`Adding product "${productName}" to cart`);
+    
+    cy.get("body").then(($body) => {
+      if ($body.find(this.productItem).length > 0) {
+        cy.get(this.productItem)
+          .contains(productName)
+          .parents(this.productItem)
+          .find(this.inventoryBtn)
+          .should('have.text', "Remove")
+          .click();
+      } else {
+        cy.get(this.removeButton)
+          .should("be.visible")
+          .click();
+      }
+    });
+  }
+
   
   backToProduct() {
     cy.get(this.backToProductLink).click();
@@ -54,6 +118,7 @@ class InventoryPage {
       expect(prices).to.deep.equal(sorted);
     });
   }
+  
 }
 
 export default new InventoryPage();
