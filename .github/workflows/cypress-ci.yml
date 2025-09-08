@@ -1,4 +1,4 @@
-name: Automated E2E tests with Cypress (POM + fixtures + CI-ready)
+name: Run Cypress Tests
 
 on:
   push:
@@ -11,31 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Lấy code về
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20 # Dùng Node 20 ổn định hơn Node 18
 
-      # 3. Cài dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4. Chạy Cypress tests
       - name: Run Cypress tests
-        run: npm run test
-
-      # 5. Generate Allure Report
+        run: npx cypress run --headless
       - name: Generate Allure Report
-        run: npm run allure:generate
-
-      # 6. Deploy Allure Report lên GitHub Pages
-      - name: Deploy Allure Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
+        run: npx allure generate allure-results --clean
+          npx allure open
