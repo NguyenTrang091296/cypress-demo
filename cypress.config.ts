@@ -4,10 +4,7 @@ import allureWriter from "@shelex/cypress-allure-plugin/writer";
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // Kích hoạt Allure plugin
       allureWriter(on, config);
-
-      // Luôn return config
       return config;
     },
     baseUrl: "https://www.saucedemo.com", // URL mặc định
