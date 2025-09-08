@@ -7,7 +7,7 @@ describe("API Testing - Users", () => {
       method: "GET",
       url: `${baseUrl}/users?page=2`,
       headers: {
-        "x-api-key": Cypress.env("API_KEY") || process.env.API_KEY,
+        "x-api-key": Cypress.env("API_KEY"),
       },
     }).then((response) => {
       // Kiểm tra status code
@@ -24,7 +24,7 @@ describe("API Testing - Users", () => {
       method: "POST",
       url: `${baseUrl}/users`,
       headers: {
-        "x-api-key": Cypress.env("API_KEY") || process.env.API_KEY,
+        "x-api-key": Cypress.env("API_KEY"),
       },
       body: {
         name: "Trang",
@@ -45,7 +45,7 @@ describe("API Testing - Users", () => {
       method: "PUT",
       url: `${baseUrl}/users/${userId}`,
       headers: {
-        "x-api-key": Cypress.env("API_KEY") || process.env.API_KEY,
+        "x-api-key": Cypress.env("API_KEY"),
       },
       body: {
         name: "Trang",
@@ -62,7 +62,7 @@ describe("API Testing - Users", () => {
       method: "DELETE",
       url: `${baseUrl}/users/${userId}`,
       headers: {
-        "x-api-key": Cypress.env("API_KEY") || process.env.API_KEY,
+        "x-api-key": Cypress.env("API_KEY"),
       },
     }).then((response) => {
       expect(response.status).to.eq(204); // Không có nội dung trả về

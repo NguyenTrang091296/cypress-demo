@@ -13,6 +13,9 @@ export default defineConfig({
     baseUrl: "https://www.saucedemo.com", // URL mặc định
     specPattern: "cypress/e2e/**/*.cy.{js,ts}",
     supportFile: "cypress/support/e2e.ts",
+    env: {
+      API_KEY: process.env.API_KEY || "default-local-key",
+    },
   },
   env: {
     allure: true,
