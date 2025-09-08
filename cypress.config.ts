@@ -7,23 +7,14 @@ export default defineConfig({
     specPattern: "cypress/e2e/**/*.cy.{js,ts}",
     supportFile: "cypress/support/e2e.ts",
 
-    // Setup Allure
     setupNodeEvents(on, config) {
       allureWriter(on, config);
       return config;
     },
 
     env: {
-      API_KEY: process.env.API_KEY || "default-local-key",
       allure: true,
+      API_KEY: process.env.API_KEY || "default-local-key",
     },
-  },
-
-  reporter: "allure-cypress",
-  reporterOptions: {
-    resultsDir: "allure-results",
-    overwrite: true,
-    useCypressSteps: true,
-    useCypressLabels: true,
   },
 });
