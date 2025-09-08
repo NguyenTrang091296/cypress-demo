@@ -4,9 +4,9 @@
   "description": "Automated E2E tests with Cypress (POM + fixtures + CI-ready)",
   "main": "index.js",
   "scripts": {
-  "test": "cypress run --headless",
-  "allure:generate": "allure generate allure-results --clean",
-  "allure:open": "allure open allure-report"
+    "test": "cypress run --headless",
+    "allure:generate": "allure generate allure-results --clean",
+    "allure:open": "allure open allure-report"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/NguyenTrang091296/cypress-demo#readme",
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
     "@types/cypress": "^0.1.6",
     "@types/node": "^24.3.0",
     "allure-commandline": "^2.34.1",
