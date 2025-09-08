@@ -10,4 +10,8 @@ export default defineConfig({
       return config;
     },
   },
+  reporter: "allure-cypress",
+  reporterOptions: {
+    resultsDir: "allure-results"
+  }
 });
