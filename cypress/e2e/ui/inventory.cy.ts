@@ -1,7 +1,7 @@
-import LoginPage from '../pages/LoginPage';
-import InventoryPage from '../pages/InventoryPage';
-import loginData from '../fixtures/loginData.json';
-import productData from '../fixtures/productData.json';
+import LoginPage from '../../pages/LoginPage';
+import InventoryPage from '../../pages/InventoryPage';
+import loginData from '../../fixtures/loginData.json';
+import productData from '../../fixtures/productData.json';
 
 describe('Verify function on Inventory Page', () => {
   it('Should view information product successfully', () => {

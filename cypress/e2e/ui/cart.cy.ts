@@ -1,8 +1,8 @@
-import LoginPage from '../pages/LoginPage';
-import InventoryPage from '../pages/InventoryPage';
-import CartPage from '../pages/CartPage';
-import loginData from '../fixtures/loginData.json';
-import productData from '../fixtures/productData.json';
+import LoginPage from '../../pages/LoginPage';
+import InventoryPage from '../../pages/InventoryPage';
+import CartPage from '../../pages/CartPage';
+import loginData from '../../fixtures/loginData.json';
+import productData from '../../fixtures/productData.json';
 
 describe('Verify function on Cart Page', () => {
   it('Go to Cart page', () => {
