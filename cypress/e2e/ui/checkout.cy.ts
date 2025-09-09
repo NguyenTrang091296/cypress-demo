@@ -3,9 +3,9 @@ import InventoryPage from '../../pages/InventoryPage';
 import CartPage from '../../pages/CartPage';
 import CheckOutPage from '../../pages/CheckOutPage';
 import OrderPage from '../../pages/OrderPage';
-import loginData from '../../fixtures/loginData.json';
-import productData from '../../fixtures/productData.json';
-import userData from '../../fixtures/userData.json';
+import loginData from '../../fixtures/ui/loginData.json';
+import productData from '../../fixtures/ui/productData.json';
+import userData from '../../fixtures/ui/userData.json';
 
 describe('Verify function on Checkout Page', () => {
   

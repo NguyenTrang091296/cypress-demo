@@ -1,0 +1,16 @@
+{
+   "createUser": {
+        "email": "george.bluth@reqres.in",
+        "first_name": "George",
+        "last_name": "Bluth",
+        "avatar": "https://reqres.in/img/faces/1-image.jpg",
+        "job": "QA Automation"
+   },
+   "updateUser": {
+        "email": "george.bluth@reqres.in",
+        "first_name": "George 1",
+        "last_name": "Bluth",
+        "avatar": "https://reqres.in/img/faces/1-image.jpg",
+        "job": "QA Leader"
+   }
+}

@@ -1,3 +1,4 @@
+import userData from "../../../fixtures/api/userApiData.json";
 describe("API Testing - Users", () => {
   const baseUrl = "https://reqres.in/api";
   let userId;
@@ -27,13 +28,31 @@ describe("API Testing - Users", () => {
         "x-api-key": Cypress.env("API_KEY"),
       },
       body: {
-        name: "Trang",
-        job: "QA Automation",
+        first_name: userData.createUser.first_name,
+        last_name: userData.createUser.last_name,
+        email: userData.createUser.email,
+        avatar: userData.createUser.avatar,
+        job: userData.createUser.job,
       },
     }).then((response) => {
       expect(response.status).to.eq(201);
-      expect(response.body).to.have.property("name", "Trang");
-      expect(response.body).to.have.property("job", "QA Automation");
+      expect(response.body).to.have.property(
+        "first_name",
+        userData.createUser.first_name
+      );
+      expect(response.body).to.have.property(
+        "last_name",
+        userData.createUser.last_name
+      );
+      expect(response.body).to.have.property(
+        "email",
+        userData.createUser.email
+      );
+      expect(response.body).to.have.property(
+        "avatar",
+        userData.createUser.avatar
+      );
+      expect(response.body).to.have.property("job", userData.createUser.job);
       expect(response.body).to.have.property("id");
       userId = response.body.id;
     });
@@ -48,13 +67,31 @@ describe("API Testing - Users", () => {
         "x-api-key": Cypress.env("API_KEY"),
       },
       body: {
-        name: "Trang",
-        job: "QC Leader",
+        first_name: userData.updateUser.first_name,
+        last_name: userData.updateUser.last_name,
+        email: userData.updateUser.email,
+        avatar: userData.updateUser.avatar,
+        job: userData.updateUser.job,
       },
     }).then((response) => {
       expect(response.status).to.eq(200);
-      expect(response.body).to.have.property("name", "Trang");
-      expect(response.body).to.have.property("job", "QC Leader");
+      expect(response.body).to.have.property(
+        "first_name",
+        userData.updateUser.first_name
+      );
+      expect(response.body).to.have.property(
+        "last_name",
+        userData.updateUser.last_name
+      );
+      expect(response.body).to.have.property(
+        "email",
+        userData.updateUser.email
+      );
+      expect(response.body).to.have.property(
+        "avatar",
+        userData.updateUser.avatar
+      );
+      expect(response.body).to.have.property("job", userData.updateUser.job);
     });
   });
   it("Delete user successfully", () => {
@@ -65,7 +102,7 @@ describe("API Testing - Users", () => {
         "x-api-key": Cypress.env("API_KEY"),
       },
     }).then((response) => {
-      expect(response.status).to.eq(204); // Không có nội dung trả về
+      expect(response.status).to.eq(204);
     });
   });
 });

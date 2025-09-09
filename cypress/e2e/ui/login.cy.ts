@@ -1,6 +1,6 @@
 import LoginPage from '../../pages/LoginPage';
 import InventoryPage from '../../pages/InventoryPage';
-import loginData from '../../fixtures/loginData.json';
+import loginData from '../../fixtures/ui/loginData.json';
 
 
 describe('Login Test', () => {
